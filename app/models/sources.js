@@ -20,4 +20,6 @@ const sourcesSchema = new Schema({
 })
 
 // create a mongoose model using schema
-export const Sources = mongoose.model('Sources', sourcesSchema)
+const Sources = mongoose.model('Sources', sourcesSchema)
+
+module.exports = Sources
