@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/AishwaryaChat/read-it-later-complete#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.2",
+    "mongoose": "^4.9.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
