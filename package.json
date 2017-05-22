@@ -1,0 +1,28 @@
+{
+  "name": "read-it-later",
+  "version": "1.0.0",
+  "description": "A simple read it later articles app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AishwaryaChat/read-it-later-complete.git"
+  },
+  "keywords": [
+    "read",
+    "it",
+    "later"
+  ],
+  "author": "Aishwarya Chaturvedi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AishwaryaChat/read-it-later-complete/issues"
+  },
+  "homepage": "https://github.com/AishwaryaChat/read-it-later-complete#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
