@@ -1,17 +1,19 @@
 const path = require('path')
 
 module.exports = {
-  entry: ['./app/app.js'],
+  entry: ['app/app.js'],
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, '/public')
+    path: __dirname,
+    filename: 'public/bundle.js'
   },
   resolve: {
     modules: [
       __dirname,
       'node_modules'
     ],
-    alias: {},
+    alias: {
+      Main: path.resolve('app/views/components/Main.js')
+    },
     extensions: ['*', '.js', '.jsx']
   },
   module: {
@@ -21,7 +23,7 @@ module.exports = {
         query: {
           presets: ['react', 'es2015', 'stage-0']
         },
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /(node_modules|bower_components)/
       }
     ]

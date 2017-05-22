@@ -5,6 +5,8 @@ mongoose.Promise = require('promise')
 const controllers = require('./app/controllers')
 const server = express()
 
+server.use(express.static('public'))
+
 mongoose.connect('mongodb://localhost:27017/tldrDatabase')
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'db connection error:'))
