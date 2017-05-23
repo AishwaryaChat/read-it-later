@@ -21,6 +21,7 @@ db.once('open', (err) => {
 
 // get request to fetch Sources from news API
 server.get('/sources', controllers.sources.get)
+server.get('/categories', controllers.categories.get)
 server.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/app/index.html'))
 })
