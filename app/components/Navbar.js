@@ -10,6 +10,7 @@ class Navbar extends React.Component {
 
   constructor (props) {
     super(props)
+    this.handleCategory = this.handleCategory.bind(this)
   }
 
   componentDidMount () {
@@ -18,6 +19,10 @@ class Navbar extends React.Component {
     .then((data) => data.json())
     .then((data) => dispatch(actions.categories.setCategory(data)))
     .catch((err) => dispatch(actions.categories.setCategory(categories)))
+  }
+
+  handleCategory (e) {
+    console.log(e.target.innerHTML)
   }
 
   render () {
@@ -33,7 +38,7 @@ class Navbar extends React.Component {
                 {
                   categories.map((cat) => {
                     return (
-                      <li key={cat}>
+                      <li onClick={e => { this.handleCategory(e) }} key={cat}>
                         <a href='#'>{cat}</a>
                       </li>
                     )

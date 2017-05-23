@@ -15,7 +15,8 @@ module.exports = {
     ],
     alias: {
       Main: path.resolve('app/components/Main.js'),
-      Navbar: path.resolve('app/components/Navbar.js')
+      Navbar: path.resolve('app/components/Navbar.js'),
+      Sources: path.resolve('app/components/Sources.js')
     },
     extensions: ['*', '.js', '.jsx']
   },

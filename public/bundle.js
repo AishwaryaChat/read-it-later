@@ -29204,7 +29204,8 @@ var redux = __webpack_require__(34);
 
 var INITIAL_STATE = {
   category: 'general',
-  categories: []
+  categories: [],
+  sources: []
 };
 
 var store = (0, _redux.createStore)(_reducers2.default, INITIAL_STATE, redux.compose(window.devToolsExtension ? window.devToolsExtension() : function (f) {
@@ -29226,6 +29227,7 @@ _reactDom2.default.render(_react2.default.createElement(
 
 exports.category = __webpack_require__(253);
 exports.categories = __webpack_require__(252);
+exports.sources = __webpack_require__(254);
 
 /***/ }),
 /* 102 */
@@ -29252,6 +29254,10 @@ var _Navbar = __webpack_require__(103);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
+var _Sources = __webpack_require__(256);
+
+var _Sources2 = _interopRequireDefault(_Sources);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29275,7 +29281,8 @@ var Main = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Navbar2.default, null)
+        _react2.default.createElement(_Navbar2.default, null),
+        _react2.default.createElement(_Sources2.default, null)
       );
     }
   }]);
@@ -29328,7 +29335,10 @@ var Navbar = function (_React$Component) {
   function Navbar(props) {
     _classCallCheck(this, Navbar);
 
-    return _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
+
+    _this.handleCategory = _this.handleCategory.bind(_this);
+    return _this;
   }
 
   _createClass(Navbar, [{
@@ -29347,8 +29357,15 @@ var Navbar = function (_React$Component) {
       });
     }
   }, {
+    key: 'handleCategory',
+    value: function handleCategory(e) {
+      console.log(e.target.innerHTML);
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var categories = this.props.categories;
 
       return _react2.default.createElement(
@@ -29379,7 +29396,9 @@ var Navbar = function (_React$Component) {
                 categories.map(function (cat) {
                   return _react2.default.createElement(
                     'li',
-                    { key: cat },
+                    { onClick: function onClick(e) {
+                        _this2.handleCategory(e);
+                      }, key: cat },
                     _react2.default.createElement(
                       'a',
                       { href: '#' },
@@ -29502,14 +29521,18 @@ var _categories = __webpack_require__(104);
 
 var _categories2 = _interopRequireDefault(_categories);
 
+var _sources = __webpack_require__(255);
+
+var _sources2 = _interopRequireDefault(_sources);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var redux = __webpack_require__(34);
 
 var reducer = redux.combineReducers({
   category: _category2.default,
-  categories: _categories2.default
-
+  categories: _categories2.default,
+  sources: _sources2.default
 });
 
 exports.default = reducer;
@@ -46622,6 +46645,101 @@ var setCategory = exports.setCategory = function setCategory(category) {
     category: category
   };
 };
+
+/***/ }),
+/* 254 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var SET_SOURCES = 'SET_SOURCES';
+
+var setSources = exports.setSources = function setSources(sources) {
+  return {
+    type: SET_SOURCES,
+    sources: sources
+  };
+};
+
+/***/ }),
+/* 255 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var INITIAL_STATE = [];
+
+var sourcesReducer = function sourcesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'SET_SOURCES':
+      return action.sources;
+    default:
+      return state;
+  }
+};
+
+exports.default = sourcesReducer;
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(25);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Sources = function (_React$Component) {
+  _inherits(Sources, _React$Component);
+
+  function Sources() {
+    _classCallCheck(this, Sources);
+
+    return _possibleConstructorReturn(this, (Sources.__proto__ || Object.getPrototypeOf(Sources)).apply(this, arguments));
+  }
+
+  _createClass(Sources, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        'Sources Component'
+      );
+    }
+  }]);
+
+  return Sources;
+}(_react2.default.Component);
+
+exports.default = Sources;
 
 /***/ })
 /******/ ]);

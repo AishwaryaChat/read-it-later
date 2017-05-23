@@ -9,7 +9,8 @@ import Main from 'Main'
 
 const INITIAL_STATE = {
   category: 'general',
-  categories: []
+  categories: [],
+  sources: []
 }
 
 let store = createStore(reducer, INITIAL_STATE, redux.compose(
