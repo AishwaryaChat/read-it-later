@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 mongoose.Promise = require('promise')
+const path = require('path')
 
 const controllers = require('./app/controllers')
 const server = express()
@@ -20,3 +21,6 @@ db.once('open', (err) => {
 
 // get request to fetch Sources from news API
 server.get('/sources', controllers.sources.get)
+server.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/app/index.html'))
+})

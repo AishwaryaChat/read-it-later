@@ -3,8 +3,8 @@ const path = require('path')
 module.exports = {
   entry: ['app/app.js'],
   output: {
-    path: __dirname,
-    filename: 'public/bundle.js'
+    path: path.join(__dirname, '/public'),
+    filename: 'bundle.js'
   },
   resolve: {
     modules: [
@@ -12,7 +12,8 @@ module.exports = {
       'node_modules'
     ],
     alias: {
-      Main: path.resolve('app/views/components/Main.js')
+      Main: path.resolve('app/components/Main.js'),
+      Navbar: path.resolve('app/components/Navbar.js')
     },
     extensions: ['*', '.js', '.jsx']
   },
@@ -25,6 +26,23 @@ module.exports = {
         },
         test: /\.js?$/,
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader : 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]'
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+            'file-loader?hash=sha512&digest=hex&name=[hash].[ext]'
+        ]
       }
     ]
   }
