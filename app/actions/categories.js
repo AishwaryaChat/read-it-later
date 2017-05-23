@@ -1,8 +1,8 @@
-const SET_CATEGORY = 'SET_CATEGORY'
+const SET_CATEGORIES = 'SET_CATEGORIES'
 
-export let setCategory = (category) => {
+export let setCategory = (categories) => {
   return {
-    type: SET_CATEGORY,
-    category
+    type: SET_CATEGORIES,
+    categories
   }
 }

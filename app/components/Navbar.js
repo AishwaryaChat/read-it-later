@@ -1,10 +1,27 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import fetch from 'isomorphic-fetch'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
 
+const actions = require('../actions')
+
 class Navbar extends React.Component {
+
+  constructor (props) {
+    super(props)
+  }
+
+  componentDidMount () {
+    const {dispatch, categories} = this.props
+    fetch('/categories')
+    .then((data) => data.json())
+    .then((data) => dispatch(actions.categories.setCategory(data)))
+    .catch((err) => dispatch(actions.categories.setCategory(categories)))
+  }
+
   render () {
+    const {categories} = this.props
     return (
       <nav>
         <div className='nav-wrapper'>
@@ -13,13 +30,15 @@ class Navbar extends React.Component {
             <li>
               <a href='#' className='btn dropdown-button' data-activates='dropdown'>Categories</a>
               <ul id='dropdown' className='dropdown-content'>
-                <li><a href='#'>General</a></li>
-                <li className='divider' />
-                <li><a href='#!'>Business</a></li>
-                <li className='divider' />
-                <li><a href='#'>Sports</a></li>
-                <li className='divider' />
-                <li><a href='#'>Bollywood</a></li>
+                {
+                  categories.map((cat) => {
+                    return (
+                      <li key={cat}>
+                        <a href='#'>{cat}</a>
+                      </li>
+                    )
+                  })
+                }
               </ul>
             </li>
             <li><a href='#'>Saved Articles</a></li>
@@ -34,6 +53,6 @@ class Navbar extends React.Component {
 
 export default connect((state) => {
   return {
-    category: state.category
+    categories: state.categories
   }
 })(Navbar)

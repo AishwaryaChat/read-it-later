@@ -1,12 +1,12 @@
-const INITIAL_STATE = ''
+const INITIAL_STATE = []
 
-let categoryReducer = (state = INITIAL_STATE, action) => {
+let categoriesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'SET_CATEGORY':
-      return action.category
+    case 'SET_CATEGORIES':
+      return action.categories
     default:
       return state
   }
 }
 
-export default categoryReducer
+export default categoriesReducer
