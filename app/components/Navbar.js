@@ -1,8 +1,9 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
   render () {
     return (
       <nav>
@@ -30,3 +31,9 @@ export default class Navbar extends React.Component {
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    category: state.category
+  }
+})(Navbar)

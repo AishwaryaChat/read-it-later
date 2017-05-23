@@ -9,7 +9,8 @@ module.exports = {
   resolve: {
     modules: [
       __dirname,
-      'node_modules'
+      'node_modules',
+      './app/components'
     ],
     alias: {
       Main: path.resolve('app/components/Main.js'),
