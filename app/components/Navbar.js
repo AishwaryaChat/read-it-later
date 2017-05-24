@@ -13,12 +13,12 @@ class Navbar extends React.Component {
     this.handleCategory = this.handleCategory.bind(this)
   }
 
-  componentDidMount () {
+  componentWillMount () {
     const {dispatch, categories} = this.props
     fetch('/categories')
     .then((data) => data.json())
-    .then((data) => dispatch(actions.categories.setCategory(data)))
-    .catch((err) => dispatch(actions.categories.setCategory(categories)))
+    .then((data) => dispatch(actions.categories.setCategories(data)))
+    .catch((err) => dispatch(actions.categories.setCategories(categories)))
   }
 
   handleCategory (e) {
@@ -26,7 +26,10 @@ class Navbar extends React.Component {
     const {dispatch, sources} = this.props
     fetch(`/fetchSources/${cat}`)
     .then((data) => data.json())
-    .then((data) => dispatch(actions.sources.setSources(data)))
+    .then((data) => {
+      dispatch(actions.sources.setSources(data))
+      dispatch(actions.category.setCategory(cat))
+    })
     .catch((err) => dispatch(actions.sources.setSources(sources)))
   }
 

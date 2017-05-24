@@ -1,3 +1,5 @@
-exports.category = require('./category')
 exports.categories = require('./categories')
+exports.category = require('./category')
 exports.sources = require('./sources')
+exports.source = require('./source')
+exports.articles = require('./articles')

@@ -1,13 +1,17 @@
 const redux = require('redux')
 
-import categoryReducer from './category'
 import categoriesReducer from './categories'
+import categoryReducer from './category'
 import sourcesReducer from './sources'
+import sourceReducer from './source'
+import articlesReducer from './articles'
 
 let reducer = redux.combineReducers({
-  category: categoryReducer,
   categories: categoriesReducer,
-  sources: sourcesReducer
+  sources: sourcesReducer,
+  category: categoryReducer,
+  source: sourceReducer,
+  articles: articlesReducer
 })
 
 export default reducer

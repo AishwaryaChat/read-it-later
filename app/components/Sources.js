@@ -8,16 +8,33 @@ const actions = require('../actions')
 
 class Sources extends React.Component {
 
+  constructor (props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (e, id) {
+    let {dispatch} = this.props
+    dispatch(actions.source.setSource(id))
+    const url = 'https://newsapi.org/v1/articles?source=' + id + '&sortBy=top&apiKey=c6a6b6c8a55d4ddcacd7ca0a32c8f20a'
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === 'ok') {
+        dispatch(actions.articles.setArticles(data.articles))
+      }
+    })
+  }
+
   componentWillMount () {
-    let {category, dispatch, sources} = this.props
+    let {category, dispatch} = this.props
     fetch(`/fetchSources/${category}`)
     .then((data) => data.json())
     .then((data) => dispatch(actions.sources.setSources(data)))
-    .catch((err) => dispatch(actions.sources.setSources(sources)))
+    .catch((err) => console.log(err))
   }
 
   render () {
-    console.log(this.props)
     let {sources} = this.props
     let description = ''
     return (
@@ -38,7 +55,7 @@ class Sources extends React.Component {
                       <p>{description}</p>
                     </div>
                     <div className='card-action'>
-                      <a href='#'>Top Articles</a>
+                      <a href='#' onClick={e => this.handleClick(e, src.id)}>Top Articles</a>
                       <a href={src.url}>Go to the site</a>
                     </div>
                   </div>
