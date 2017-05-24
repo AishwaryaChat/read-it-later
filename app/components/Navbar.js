@@ -22,7 +22,12 @@ class Navbar extends React.Component {
   }
 
   handleCategory (e) {
-    console.log(e.target.innerHTML)
+    const cat = e.target.innerHTML
+    const {dispatch, sources} = this.props
+    fetch(`/fetchSources/${cat}`)
+    .then((data) => data.json())
+    .then((data) => dispatch(actions.sources.setSources(data)))
+    .catch((err) => dispatch(actions.sources.setSources(sources)))
   }
 
   render () {
