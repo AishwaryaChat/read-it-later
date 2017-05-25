@@ -17,9 +17,10 @@ module.exports = {
       Main: path.resolve('app/components/Main.js'),
       Navbar: path.resolve('app/components/Navbar.js'),
       Sources: path.resolve('app/components/Sources.js'),
+      App: path.resolve('app/components/App.js'),
       LandingPage: path.resolve('app/components/LandingPage.js'),
       LandingNavbar: path.resolve('app/components/LandingNavbar.js'),
-      App: path.resolve('app/components/App.js')
+      Signup: path.resolve('app/components/Signup.js')
     },
     extensions: ['*', '.js', '.jsx']
   },
