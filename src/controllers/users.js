@@ -10,7 +10,7 @@ exports.addUser = (req, res) => {
     if (err) {
       res.send(err)
     } else {
-      res.send('OK')
+      res.redirect('/#/login')
     }
   })
 }
@@ -19,7 +19,7 @@ exports.addUser = (req, res) => {
 exports.checkUser = (req, res) => {
   Users.findOne({'emailID': req.body.email_id}, 'password -_id', (err, resp) => {
     if (resp.password === req.body.password) {
-      res.send('User Logged in successfully')
+      res.redirect('/#/main')
     } else {
       res.send(err)
     }

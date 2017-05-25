@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import fetch from 'isomorphic-fetch'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
-import {hashHistory} from 'react-router'
+
 
 const actions = require('../actions')
 
@@ -40,7 +40,7 @@ class Navbar extends React.Component {
     const {categories} = this.props
     return (
       <nav>
-        <div className='nav-wrapper'>
+        <div className='nav-wrapper grey darken-3'>
           <a href='#' className='brand-logo'>Read-It-Later</a>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
             <li>

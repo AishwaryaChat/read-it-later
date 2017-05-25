@@ -5,6 +5,7 @@ import App from 'App'
 import LandingPage from 'LandingPage'
 import Signup from 'Signup'
 import Login from 'Login'
+import Main from 'Main'
 
 const Routes = () => {
   return (
@@ -13,6 +14,7 @@ const Routes = () => {
         <IndexRoute component={LandingPage} />
         <Route path='/signup' component={Signup} />
         <Route path='/login' component={Login} />
+        <Route path='/main' component={Main} />
       </Route>
     </Router>
   )

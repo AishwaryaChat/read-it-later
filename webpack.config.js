@@ -2,9 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: ['app/app.js'],
+  entry: ['public/app/app.js'],
   output: {
-    path: path.join(__dirname, '/public'),
+    path: path.join(__dirname, '/build'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -14,14 +14,14 @@ module.exports = {
       './app/components'
     ],
     alias: {
-      Main: path.resolve('app/components/Main.js'),
-      Navbar: path.resolve('app/components/Navbar.js'),
-      Sources: path.resolve('app/components/Sources.js'),
-      App: path.resolve('app/components/App.js'),
-      LandingPage: path.resolve('app/components/LandingPage.js'),
-      LandingNavbar: path.resolve('app/components/LandingNavbar.js'),
-      Signup: path.resolve('app/components/Signup.js'),
-      Login: path.resolve('app/components/Login.js')
+      Main: path.resolve('public/app/components/Main.js'),
+      Navbar: path.resolve('public/app/components/Navbar.js'),
+      Sources: path.resolve('public/app/components/Sources.js'),
+      App: path.resolve('public/app/components/App.js'),
+      LandingPage: path.resolve('public/app/components/LandingPage.js'),
+      LandingNavbar: path.resolve('public/app/components/LandingNavbar.js'),
+      Signup: path.resolve('public/app/components/Signup.js'),
+      Login: path.resolve('public/app/components/Login.js')
     },
     extensions: ['*', '.js', '.jsx']
   },

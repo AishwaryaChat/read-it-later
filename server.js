@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 mongoose.Promise = require('promise')
 const path = require('path')
 
-const controllers = require('./app/controllers')
+const controllers = require('./src/controllers')
 const server = express()
 const bodyParser = require('body-parser')
 
-server.use(express.static('public'))
+server.use(express.static('build'))
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: true}))
 
@@ -27,7 +27,7 @@ server.get('/sources', controllers.sources.get)
 server.get('/categories', controllers.categories.get)
 server.get('/fetchSources/:cat', controllers.fetchSources.get)
 server.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/app/index.html'))
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 server.post('/addUser', controllers.users.addUser)
 server.post('/checkUser', controllers.users.checkUser)

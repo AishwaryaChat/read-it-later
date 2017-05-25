@@ -1,5 +1,5 @@
 import React from 'react'
-import '../views/styles/main.css'
+import '../../views/styles/main.css'
 
 class LandingImage extends React.Component {
   render () {
