@@ -51843,14 +51843,14 @@ var Signup = function (_React$Component) {
         ),
         _react2.default.createElement(
           'form',
-          { className: 'col s12' },
+          { className: 'col s12', action: '/addUser', method: 'post' },
           _react2.default.createElement(
             'div',
             { className: 'row' },
             _react2.default.createElement(
               'div',
               { className: 'input-field col s6' },
-              _react2.default.createElement('input', { placeholder: 'FirstName', id: 'first_name', type: 'text', className: 'validate' })
+              _react2.default.createElement('input', { placeholder: 'FirstName', name: 'first_name', type: 'text' })
             )
           ),
           _react2.default.createElement(
@@ -51859,7 +51859,7 @@ var Signup = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'input-field col s6' },
-              _react2.default.createElement('input', { placeholder: 'Second Name', id: 'second_name', type: 'text', className: 'validate' })
+              _react2.default.createElement('input', { placeholder: 'Second Name', name: 'last_name', type: 'text' })
             )
           ),
           _react2.default.createElement(
@@ -51868,7 +51868,7 @@ var Signup = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'input-field col s6' },
-              _react2.default.createElement('input', { placeholder: 'Email ID', id: 'email_id', type: 'text', className: 'validate' })
+              _react2.default.createElement('input', { placeholder: 'Email ID', name: 'email_id', type: 'email' })
             )
           ),
           _react2.default.createElement(
@@ -51877,7 +51877,7 @@ var Signup = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'input-field col s6' },
-              _react2.default.createElement('input', { placeholder: 'Password', id: 'password', type: 'text', className: 'validate' })
+              _react2.default.createElement('input', { placeholder: 'Password', name: 'password', type: 'password' })
             )
           ),
           _react2.default.createElement(

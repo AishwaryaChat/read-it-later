@@ -9,25 +9,25 @@ class Signup extends React.Component {
         <div className='col s12'>
           <h2>Sign Up</h2>
         </div>
-        <form className='col s12'>
+        <form className='col s12' action='/addUser' method='post'>
           <div className='row'>
             <div className='input-field col s6'>
-              <input placeholder='FirstName' id='first_name' type='text' className='validate' />
+              <input placeholder='FirstName' name='first_name' type='text' />
             </div>
           </div>
           <div className='row'>
             <div className='input-field col s6'>
-              <input placeholder='Second Name' id='second_name' type='text' className='validate' />
+              <input placeholder='Second Name' name='last_name' type='text' />
             </div>
           </div>
           <div className='row'>
             <div className='input-field col s6'>
-              <input placeholder='Email ID' id='email_id' type='text' className='validate' />
+              <input placeholder='Email ID' name='email_id' type='email' />
             </div>
           </div>
           <div className='row'>
             <div className='input-field col s6'>
-              <input placeholder='Password' id='password' type='text' className='validate' />
+              <input placeholder='Password' name='password' type='password' />
             </div>
           </div>
           <div className='row'>

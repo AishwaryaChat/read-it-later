@@ -5,8 +5,11 @@ const path = require('path')
 
 const controllers = require('./app/controllers')
 const server = express()
+const bodyParser = require('body-parser')
 
 server.use(express.static('public'))
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({extended: true}))
 
 mongoose.connect('mongodb://localhost:27017/tldrDatabase')
 const db = mongoose.connection
@@ -26,3 +29,4 @@ server.get('/fetchSources/:cat', controllers.fetchSources.get)
 server.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/app/index.html'))
 })
+server.post('/addUser', controllers.users.post)

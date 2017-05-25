@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/AishwaryaChat/read-it-later-complete#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.2",
     "mongoose": "^4.9.6",
     "node-fetch": "^1.6.3",
