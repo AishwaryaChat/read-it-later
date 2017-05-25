@@ -1,7 +1,7 @@
 const Users = require('../models/users')
 
-exports.post = (req, res) => {
-  console.log(req.body)
+// Adding a User
+exports.addUser = (req, res) => {
   Users.create({
     name: req.body.first_name + ' ' + req.body.last_name,
     emailID: req.body.email_id,
@@ -11,6 +11,17 @@ exports.post = (req, res) => {
       res.send(err)
     } else {
       res.send('OK')
+    }
+  })
+}
+
+// User authentication
+exports.checkUser = (req, res) => {
+  Users.findOne({'emailID': req.body.email_id}, 'password -_id', (err, resp) => {
+    if (resp.password === req.body.password) {
+      res.send('User Logged in successfully')
+    } else {
+      res.send(err)
     }
   })
 }

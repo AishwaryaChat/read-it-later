@@ -51959,14 +51959,14 @@ var Login = function (_React$Component) {
         ),
         _react2.default.createElement(
           'form',
-          { className: 'col s12' },
+          { className: 'col s12', action: '/checkUser', method: 'post' },
           _react2.default.createElement(
             'div',
             { className: 'row' },
             _react2.default.createElement(
               'div',
               { className: 'input-field col s6' },
-              _react2.default.createElement('input', { placeholder: 'Email ID', id: 'email_id', type: 'text', className: 'validate' })
+              _react2.default.createElement('input', { placeholder: 'Email ID', name: 'email_id', type: 'text' })
             )
           ),
           _react2.default.createElement(
@@ -51975,7 +51975,7 @@ var Login = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'input-field col s6' },
-              _react2.default.createElement('input', { placeholder: 'Password', id: 'password', type: 'text', className: 'validate' })
+              _react2.default.createElement('input', { placeholder: 'Password', name: 'password', type: 'password' })
             )
           ),
           _react2.default.createElement(

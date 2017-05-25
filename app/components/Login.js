@@ -9,15 +9,15 @@ class Login extends React.Component {
         <div className='col s12'>
           <h2>Log In</h2>
         </div>
-        <form className='col s12'>
+        <form className='col s12' action='/checkUser' method='post'>
           <div className='row'>
             <div className='input-field col s6'>
-              <input placeholder='Email ID' id='email_id' type='text' className='validate' />
+              <input placeholder='Email ID' name='email_id' type='text' />
             </div>
           </div>
           <div className='row'>
             <div className='input-field col s6'>
-              <input placeholder='Password' id='password' type='text' className='validate' />
+              <input placeholder='Password' name='password' type='password' />
             </div>
           </div>
           <div className='row'>

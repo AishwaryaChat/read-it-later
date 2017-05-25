@@ -29,4 +29,5 @@ server.get('/fetchSources/:cat', controllers.fetchSources.get)
 server.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/app/index.html'))
 })
-server.post('/addUser', controllers.users.post)
+server.post('/addUser', controllers.users.addUser)
+server.post('/checkUser', controllers.users.checkUser)
