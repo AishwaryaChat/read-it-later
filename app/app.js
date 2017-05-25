@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 const redux = require('redux')
+import {Route, Router, IndexRoute, hashHistory} from 'react-router'
 
 import reducer from './reducers'
-import Main from 'Main'
+import Routes from './routes'
+// import Sources from 'Sources'
+// import Articles from 'Articles'
 
 const INITIAL_STATE = {
   category: 'general',
@@ -21,7 +24,7 @@ let store = createStore(reducer, INITIAL_STATE, redux.compose(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Main />
+    <Routes />
   </Provider>,
   document.getElementById('app')
 )

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import fetch from 'isomorphic-fetch'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
+import {hashHistory} from 'react-router'
 
 const actions = require('../actions')
 
@@ -27,10 +28,12 @@ class Navbar extends React.Component {
     fetch(`/fetchSources/${cat}`)
     .then((data) => data.json())
     .then((data) => {
+      dispatch(actions.articles.setArticles([]))
       dispatch(actions.sources.setSources(data))
       dispatch(actions.category.setCategory(cat))
     })
     .catch((err) => dispatch(actions.sources.setSources(sources)))
+    // hashHistory.push('sources')
   }
 
   render () {

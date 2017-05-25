@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import fetch from 'isomorphic-fetch'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
+import {hashHistory} from 'react-router'
 
 const actions = require('../actions')
 
@@ -24,6 +25,8 @@ class Sources extends React.Component {
         dispatch(actions.articles.setArticles(data.articles))
       }
     })
+    .catch((err) => console.log(err))
+    // hashHistory.push('articles')
   }
 
   componentWillMount () {

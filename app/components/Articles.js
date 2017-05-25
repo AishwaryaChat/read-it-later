@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import uuid from 'node-uuid'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
 
