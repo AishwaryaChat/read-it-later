@@ -21,7 +21,8 @@ module.exports = {
       LandingPage: path.resolve('public/app/components/LandingPage.js'),
       LandingNavbar: path.resolve('public/app/components/LandingNavbar.js'),
       Signup: path.resolve('public/app/components/Signup.js'),
-      Login: path.resolve('public/app/components/Login.js')
+      Login: path.resolve('public/app/components/Login.js'),
+      ArticleModal: path.resolve('public/app/components/ArticleModal.js')
     },
     extensions: ['*', '.js', '.jsx']
   },

@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import fetch from 'isomorphic-fetch'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
-import {hashHistory} from 'react-router'
 
+import '../../views/styles/main.css'
 const actions = require('../actions')
 
 class Sources extends React.Component {
@@ -58,8 +58,10 @@ class Sources extends React.Component {
                       <p>{description}</p>
                     </div>
                     <div className='card-action'>
-                      <a href='#' onClick={e => this.handleClick(e, src.id)}>Top Articles</a>
-                      <a href={src.url}>Go to the site</a>
+                      <ul>
+                        <li className='top-articles' onClick={e => this.handleClick(e, src.id)}>Top Articles</li>
+                        <li className='top-articles'><a href={src.url}>Go to the site</a></li>
+                      </ul>
                     </div>
                   </div>
                 </div>

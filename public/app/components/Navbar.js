@@ -4,7 +4,6 @@ import fetch from 'isomorphic-fetch'
 import 'materialize-css/dist/css/materialize.css'
 import 'materialize-css/dist/js/materialize.js'
 
-
 const actions = require('../actions')
 
 class Navbar extends React.Component {
@@ -33,7 +32,6 @@ class Navbar extends React.Component {
       dispatch(actions.category.setCategory(cat))
     })
     .catch((err) => dispatch(actions.sources.setSources(sources)))
-    // hashHistory.push('sources')
   }
 
   render () {
@@ -44,13 +42,13 @@ class Navbar extends React.Component {
           <a href='#' className='brand-logo'>Read-It-Later</a>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
             <li>
-              <a href='#' className='btn dropdown-button' data-activates='dropdown'>Categories</a>
+              <span className='btn dropdown-button' data-activates='dropdown'>Categories</span>
               <ul id='dropdown' className='dropdown-content'>
                 {
                   categories.map((cat) => {
                     return (
                       <li onClick={e => { this.handleCategory(e) }} key={cat}>
-                        <a href='#'>{cat}</a>
+                        <span>{cat}</span>
                       </li>
                     )
                   })

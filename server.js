@@ -2,10 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 mongoose.Promise = require('promise')
 const path = require('path')
-
-const controllers = require('./src/controllers')
-const server = express()
 const bodyParser = require('body-parser')
+
+const server = express()
+const controllers = require('./src/controllers')
 
 server.use(express.static('build'))
 server.use(bodyParser.json())
@@ -22,7 +22,6 @@ db.once('open', (err) => {
   console.log('DB connected successfully and APP listening at: ' + Date())
 })
 
-// get request to fetch Sources from news API
 server.get('/sources', controllers.sources.get)
 server.get('/categories', controllers.categories.get)
 server.get('/fetchSources/:cat', controllers.fetchSources.get)
