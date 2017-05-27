@@ -22,8 +22,8 @@ class LandingNavbar extends React.Component {
         <div className='nav-wrapper grey darken-3'>
           <a href='#' className='brand-logo'>Read-It-Later</a>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
-            <li><Link to='signup'>Sign Up</Link></li>
-            <li><Link to='login'>Log In</Link></li>
+            <li><a href='/signup'>Sign Up</a></li>
+            <li><a href='/login'>Log In</a></li>
           </ul>
         </div>
       </nav>

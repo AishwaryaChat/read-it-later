@@ -2,15 +2,16 @@ const Users = require('../models/users')
 
 // Adding a User
 exports.addUser = (req, res) => {
+  console.log('inside addUser ', req.body)
   Users.create({
     name: req.body.first_name + ' ' + req.body.last_name,
     emailID: req.body.email_id,
     password: req.body.password
   }, (err, response) => {
     if (err) {
-      res.send(err)
+      res.send({err})
     } else {
-      res.redirect('/#/login')
+      res.send({message: 'OK'})
     }
   })
 }
