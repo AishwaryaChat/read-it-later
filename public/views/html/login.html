@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Log In</title>
+    <link rel='stylesheet' href='/materialize/css/materialize.css'/>
+  </head>
+  <body>
+    <div class='row signup-form'>
+      <div class='col s12'>
+        <h2>Log In</h2>
+      </div>
+      <div class='col s12' action='/checkUser' method='post'>
+        <div class='row'>
+          <div class='input-field col s6'>
+            <input placeholder='Email ID' id='email_id' name='email_id' type='text' />
+          </div>
+        </div>
+        <div class='row'>
+          <div class='input-field col s6'>
+            <input placeholder='Password' id='password' name='password' type='password' />
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col s6'>
+            <button id='subBtn'>Log In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src='/materialize/js/materialize.js'></script>
+    <script src='/io-square/io-square-browser.js'></script>
+    <script>
+      const handleSubmit = () => {
+        const obj = {
+          email_id : document.getElementById('email_id').value,
+          password : document.getElementById('password').value
+        }
+        IO.postJSON('/checkUser', obj)
+        .then(res => console.log(res))
+      }
+      const btn = document.getElementById('subBtn')
+      btn.onclick = handleSubmit
+    </script>
+  </body>
+</html>

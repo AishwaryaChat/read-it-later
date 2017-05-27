@@ -36,5 +36,8 @@ server.get('/', (req, res) => {
 server.get('/signup', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/views/html/signup.html'))
 })
+server.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/views/html/login.html'))
+})
 server.post('/addUser', controllers.users.addUser)
 server.post('/checkUser', controllers.users.checkUser)

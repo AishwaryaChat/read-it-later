@@ -2,7 +2,6 @@ const Users = require('../models/users')
 
 // Adding a User
 exports.addUser = (req, res) => {
-  console.log('inside addUser ', req.body)
   Users.create({
     name: req.body.first_name + ' ' + req.body.last_name,
     emailID: req.body.email_id,
@@ -20,9 +19,9 @@ exports.addUser = (req, res) => {
 exports.checkUser = (req, res) => {
   Users.findOne({'emailID': req.body.email_id}, 'password -_id', (err, resp) => {
     if (resp.password === req.body.password) {
-      res.redirect('/#/main')
+      res.send({message: 'OK'})
     } else {
-      res.send(err)
+      res.send({err})
     }
   })
 }
