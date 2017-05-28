@@ -2,31 +2,17 @@ const Users = require('../models/users')
 
 // Adding a User
 exports.addUser = (req, res) => {
-  console.log(req.body)
   if (req.body.email_id === '') {
     return res.send({message: 'NO'})
   }
   Users.findOne({'emailID': req.body.email_id}, (err, doc) => {
     if (doc) {
-      console.log(doc)
       return res.send({message: 'already'})
     } else if (!doc) {
       createUser(req, res)
     }
     if (err) {
-      console.log(err)
       return res.send({err})
-    }
-  })
-}
-
-// User authentication
-exports.checkUser = (req, res) => {
-  Users.findOne({'emailID': req.body.email_id}, 'password -_id', (err, resp) => {
-    if (resp.password === req.body.password) {
-      res.send({message: 'OK'})
-    } else {
-      res.send({err})
     }
   })
 }
@@ -43,6 +29,35 @@ function createUser (req, res) {
     } else {
       console.log(response)
       return res.send({message: 'OK'})
+    }
+  })
+}
+
+// User authentication
+exports.checkUser = (req, res) => {
+  if (req.body.email_id === '' || req.body.password === '') {
+    return res.send({message: 'NO'})
+  }
+  Users.findOne({'emailID': req.body.email_id}, (err, doc) => {
+    if (doc) {
+      checkPassword(req, res)
+    } else {
+      return res.send({message: 'not found'})
+    }
+    if (err) {
+      res.send({err})
+    }
+  })
+}
+
+const checkPassword = (req, res) => {
+  Users.findOne({'emailID': req.body.email_id}, 'password -_id', (err, resp) => {
+    if (resp.password === req.body.password) {
+      res.send({message: 'OK'})
+    } else if (resp.password !== req.body.password) {
+      res.send({message: 'not matched'})
+    } else {
+      res.send({err})
     }
   })
 }

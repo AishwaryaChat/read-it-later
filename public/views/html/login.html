@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Log In</title>
     <link rel='stylesheet' href='/materialize/css/materialize.css'/>
+    <link rel='stylesheet' href='/styles/main.css' />
   </head>
   <body>
     <div class='row signup-form'>
@@ -27,20 +28,62 @@
           </div>
         </div>
       </div>
+      <div id='res-Modal' class='modal'>
+        <div class='modal-content'>
+          <h4 id='modal-title'></h4>
+          <p id='modal-msg'></p>
+          <button id='modal-btn' class='close'>OK</button>
+        </div>
+      </div>
     </div>
     <script src='/materialize/js/materialize.js'></script>
     <script src='/io-square/io-square-browser.js'></script>
     <script>
+    let obj = {}
+    let resObj = {}
       const handleSubmit = () => {
-        const obj = {
+        obj = {
           email_id : document.getElementById('email_id').value,
           password : document.getElementById('password').value
         }
         IO.postJSON('/checkUser', obj)
-        .then(res => console.log(res))
+        .then(response => handleResponse(response))
       }
       const btn = document.getElementById('subBtn')
       btn.onclick = handleSubmit
+      const resModal = document.getElementById('res-Modal')
+      const modalTitle = document.getElementById('modal-title')
+      const modalMsg = document.getElementById('modal-msg')
+      let msg = ''
+      const handleResponse = (res) => {
+        resObj = res
+        console.log(resObj)
+        if (resObj.message === 'NO') {
+          msg = 'Email ID and password are required'
+        } else if (resObj.message === 'not found') {
+          msg = 'Email ID not found'
+        } else if (resObj.message === 'not matched') {
+          msg = 'Password incorrect'
+        } else if (resObj.message === 'OK') {
+          msg = 'Logged in successfully'
+        }
+        modalTitle.innerHTML = 'Modal Title'
+        modalMsg.innerHTML = msg
+        resModal.style.display = 'block'
+      }
+      const modalBtn = document.getElementById('modal-btn')
+      modalBtn.onclick = () => {
+        if (resObj.message === 'OK') {
+          window.location="/main"
+        } else {
+          resModal.style.display = 'none'
+          resetForm()
+        }
+      }
+      const resetForm = () => {
+        document.getElementById('email_id').value = ''
+        document.getElementById('password').value = ''
+      }
     </script>
   </body>
 </html>
