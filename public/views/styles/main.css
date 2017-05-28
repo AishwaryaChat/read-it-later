@@ -1,7 +1,7 @@
 .outer-image-container {
   width: 100vw;
   height: 100vh;
-  background-image: url('../images/landingImage.jpg');
+  background-image: url('/images/landingImage.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

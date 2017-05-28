@@ -51,8 +51,9 @@ exports.checkUser = (req, res) => {
 }
 
 const checkPassword = (req, res) => {
-  Users.findOne({'emailID': req.body.email_id}, 'password -_id', (err, resp) => {
+  Users.findOne({'emailID': req.body.email_id}, 'password', (err, resp) => {
     if (resp.password === req.body.password) {
+      req.session.user_id = resp._id
       res.send({message: 'OK'})
     } else if (resp.password !== req.body.password) {
       res.send({message: 'not matched'})

@@ -1,5 +1,0 @@
-module.exports = {
-  'hostName': 'localhost',
-  'portNumber': 27017,
-  'dbName': 'tldrDatabase'
-}
