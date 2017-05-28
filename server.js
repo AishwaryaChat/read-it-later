@@ -58,3 +58,7 @@ server.get('/login', (req, res) => {
 })
 server.post('/addUser', controllers.users.addUser)
 server.post('/checkUser', controllers.users.checkUser)
+server.get('/logout', (req, res) => {
+  req.session.destroy()
+  res.redirect('/')
+})

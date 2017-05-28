@@ -18,8 +18,6 @@ module.exports = {
       Navbar: path.resolve('public/app/components/Navbar.js'),
       Sources: path.resolve('public/app/components/Sources.js'),
       App: path.resolve('public/app/components/App.js'),
-      LandingPage: path.resolve('public/app/components/LandingPage.js'),
-      LandingNavbar: path.resolve('public/app/components/LandingNavbar.js'),
       ArticleModal: path.resolve('public/app/components/ArticleModal.js')
     },
     extensions: ['*', '.js', '.jsx']

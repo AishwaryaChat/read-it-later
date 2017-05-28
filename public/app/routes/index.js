@@ -2,7 +2,6 @@ import React from 'react'
 import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 
 import App from 'App'
-import LandingPage from 'LandingPage'
 import Main from 'Main'
 
 const Routes = () => {
