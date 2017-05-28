@@ -9,6 +9,7 @@ const {obj} = require('./config')
 
 server.use('/materialize', express.static(path.join(__dirname, '/node_modules/materialize-css/dist')))
 server.use('/io-square', express.static(path.join(__dirname, '/node_modules/io-square-browser/lib')))
+server.use('/styles', express.static(path.join(__dirname, '/public/views/styles')))
 server.use(express.static('build'))
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: true}))

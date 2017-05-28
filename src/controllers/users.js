@@ -2,14 +2,20 @@ const Users = require('../models/users')
 
 // Adding a User
 exports.addUser = (req, res) => {
+  console.log(req.body)
+  if (req.body.email_id === '') {
+    return res.send({message: 'NO'})
+  }
   Users.findOne({'emailID': req.body.email_id}, (err, doc) => {
     if (doc) {
-      res.send({message: 'email id already exist'})
+      console.log(doc)
+      return res.send({message: 'already'})
     } else if (!doc) {
       createUser(req, res)
     }
     if (err) {
-      res.send({err})
+      console.log(err)
+      return res.send({err})
     }
   })
 }
@@ -32,9 +38,11 @@ function createUser (req, res) {
     password: req.body.password
   }, (err, response) => {
     if (err) {
-      res.send({err})
+      console.log(err)
+      return res.send({err})
     } else {
-      res.send({message: 'User successfully registered'})
+      console.log(response)
+      return res.send({message: 'OK'})
     }
   })
 }
