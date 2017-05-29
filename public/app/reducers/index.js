@@ -5,13 +5,15 @@ import categoryReducer from './category'
 import sourcesReducer from './sources'
 import sourceReducer from './source'
 import articlesReducer from './articles'
+import articleReducer from './article'
 
 let reducer = redux.combineReducers({
   categories: categoriesReducer,
   sources: sourcesReducer,
   category: categoryReducer,
   source: sourceReducer,
-  articles: articlesReducer
+  articles: articlesReducer,
+  article: articleReducer
 })
 
 export default reducer

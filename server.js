@@ -62,3 +62,6 @@ server.get('/logout', (req, res) => {
   req.session.destroy()
   res.redirect('/')
 })
+server.post('/saveArticles', (req, res) => {
+  
+})
